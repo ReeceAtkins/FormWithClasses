@@ -22,11 +22,30 @@ function getVideoGame() {
     var ratingInput = document.getElementById("rating");
     game.rating = ratingInput.value;
     var digitalOnly = document.getElementById("online");
-    game.isDigitalOnly = digitalOnly.checked;
+    if (digitalOnly.checked) {
+        game.isDigitalOnly = true;
+    }
+    else {
+        game.isDigitalOnly = false;
+    }
     return game;
-    function displayGame(myGame) {
+}
+function displayGame(myGame) {
+    var displayDiv = document.getElementById("display");
+    var gameHeading = document.createElement("h2");
+    gameHeading.innerText = myGame.title;
+    var gameInfo = document.createElement("p");
+    var notDigitalDisplay = "";
+    if (myGame.isDigitalOnly) {
+        notDigitalDisplay = "This is a digital only game.";
     }
-    function isAllDataValid() {
-        return true;
+    else {
+        notDigitalDisplay = "Come but a physical copy!";
     }
+    gameInfo.innerText = "".concat(myGame.title, " has a rating of ").concat(myGame.rating, ".\n                 It costs ").concat(myGame.price, ". It is ").concat(notDigitalDisplay, " digital only");
+    displayDiv.appendChild(gameHeading);
+    displayDiv.appendChild(gameInfo);
+}
+function isAllDataValid() {
+    return true;
 }
