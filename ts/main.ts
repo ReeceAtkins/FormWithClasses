@@ -38,13 +38,7 @@ function getVideoGame():VideoGame{
     game.rating = ratingInput.value;
 
     let digitalOnly = <HTMLInputElement>document.getElementById("online");
-    // game.isDigitalOnly = digitalOnly.checked;
-    if(digitalOnly.checked){
-        game.isDigitalOnly = true;
-    }
-    else{
-        game.isDigitalOnly = false;
-    }
+    game.isDigitalOnly = digitalOnly.checked;
 
     return game;
 }

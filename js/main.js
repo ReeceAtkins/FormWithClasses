@@ -22,12 +22,7 @@ function getVideoGame() {
     var ratingInput = document.getElementById("rating");
     game.rating = ratingInput.value;
     var digitalOnly = document.getElementById("online");
-    if (digitalOnly.checked) {
-        game.isDigitalOnly = true;
-    }
-    else {
-        game.isDigitalOnly = false;
-    }
+    game.isDigitalOnly = digitalOnly.checked;
     return game;
 }
 function displayGame(myGame) {
