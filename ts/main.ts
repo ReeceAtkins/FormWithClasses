@@ -68,7 +68,33 @@ function displayGame(myGame:VideoGame):void{
     displayDiv.appendChild(gameInfo);
     }
 
-function isAllDataValid(){
+function isAllDataValid():boolean{
+    let allDataValid = true;
+
+    let title = <HTMLInputElement>document.getElementById("title");
+    if (title.value == ""){
+        errorMessage("Please enter a title");
+        allDataValid = false;
+    }
+
+    let price = <HTMLInputElement>document.getElementById("price");
+    if (price.value == "" || parseFloat(price.value) < 0){
+        errorMessage("Please enter a valid price");
+        allDataValid = false;
+    }
+    let rating = <HTMLInputElement>document.getElementById("rating");
+    if (rating.value == "Please choose a rating"){
+        errorMessage("Please select a rating");
+        allDataValid = false;
+    }
     
-    return true;
+    return allDataValid;
+}
+
+function errorMessage(message:string):void{
+    let errorDiv = document.getElementById("validation-summary");
+    let createErrMessage = document.createElement("p");
+    createErrMessage.innerText = message;
+
+    errorDiv.appendChild(createErrMessage);
 }

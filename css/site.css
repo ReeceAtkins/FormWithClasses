@@ -49,3 +49,10 @@ h2{
     box-sizing: border-box;
     float: inline-start;
 }
+
+#validation-summary p{
+    color: darkred;
+    width: 33.3%;
+
+    float: left;
+}

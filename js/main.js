@@ -42,5 +42,27 @@ function displayGame(myGame) {
     displayDiv.appendChild(gameInfo);
 }
 function isAllDataValid() {
-    return true;
+    var allDataValid = true;
+    var title = document.getElementById("title");
+    if (title.value == "") {
+        errorMessage("Please enter a title");
+        allDataValid = false;
+    }
+    var price = document.getElementById("price");
+    if (price.value == "" || parseFloat(price.value) < 0) {
+        errorMessage("Please enter a valid price");
+        allDataValid = false;
+    }
+    var rating = document.getElementById("rating");
+    if (rating.value == "Please choose a rating") {
+        errorMessage("Please select a rating");
+        allDataValid = false;
+    }
+    return allDataValid;
+}
+function errorMessage(message) {
+    var errorDiv = document.getElementById("validation-summary");
+    var createErrMessage = document.createElement("p");
+    createErrMessage.innerText = message;
+    errorDiv.appendChild(createErrMessage);
 }
