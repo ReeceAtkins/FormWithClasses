@@ -25,3 +25,27 @@ label{
 h1{
     color: darkorchid;
 }
+#display{
+    width: 50%;
+    margin-left: 2.5%;
+    background-color: honeydew;
+}
+
+h2{
+    font-size: x-large;
+    text-align: center;
+    padding-left: .25em;
+    box-sizing: border-box;
+    width: 10%;
+    float: left;
+    margin-top: .25em;
+    margin-right: 1em;
+}
+#display p{
+    padding-top: .2em;
+    padding-bottom: .2em;
+    background-color: aliceblue;
+    border: solid black 1px;
+    box-sizing: border-box;
+    float: inline-start;
+}
